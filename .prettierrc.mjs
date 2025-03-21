@@ -1,6 +1,6 @@
 /** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
 const config = {
-  semi: false,
+  semi: true,
   printWidth: 100,
   singleQuote: true,
   trailingComma: 'es5',
@@ -31,6 +31,6 @@ const config = {
       },
     },
   ],
-};
+}
 
-export default config;
+export default config

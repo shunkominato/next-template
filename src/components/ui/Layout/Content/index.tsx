@@ -1,6 +1,5 @@
-import { ReactNode } from 'react'
-import { Box } from '@mantine/core'
+import { ReactNode } from 'react';
 
 export default function Content({ children }: { children: ReactNode }) {
-  return <Box size="xl">{children}</Box>
+  return <main className="p-4">{children}</main>;
 }
