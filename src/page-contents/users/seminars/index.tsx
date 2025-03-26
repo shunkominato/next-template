@@ -13,11 +13,9 @@ export const initialValue = {
 export default function Seminars() {
   const form = useForm({
     initialValues: initialValue,
-    onSubmitPreventDefault: 'validation-failed',
   });
 
-  const [formState, formAction] = useActionState(searchSeminars, []);
-  console.log(form.values);
+  const [seminarList, formAction] = useActionState(searchSeminars, []);
 
   return (
     <Content>
@@ -40,7 +38,7 @@ export default function Seminars() {
         </Button>
       </form>
 
-      {formState.map((item) => {
+      {seminarList.map((item) => {
         return <div key={item.title}>{item.title}</div>;
       })}
     </Content>

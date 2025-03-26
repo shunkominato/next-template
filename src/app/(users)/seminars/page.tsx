@@ -1,4 +1,4 @@
-import Seminars from '@/src/page-contents/seminars';
+import Seminars from '@/src/page-contents/users/seminars';
 
 export default function SeminarsPage() {
   return (

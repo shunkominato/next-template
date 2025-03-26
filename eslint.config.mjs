@@ -1,22 +1,20 @@
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { FlatCompat } from '@eslint/eslintrc'
-import eslint from '@eslint/js'
-import eslintConfigPrettier from 'eslint-config-prettier'
-import reactHooks from 'eslint-plugin-react-hooks'
-import tseslint from 'typescript-eslint'
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { FlatCompat } from '@eslint/eslintrc';
+import eslint from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import reactHooks from 'eslint-plugin-react-hooks';
+import tseslint from 'typescript-eslint';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({ baseDirectory: __dirname })
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({ baseDirectory: __dirname });
 
 export default tseslint.config(
   {
-    // グローバルで読み込むファイルの拡張子
     files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
   },
   {
-    // グローバルで無視するファイル
     ignores: ['**/.next/**/*', '*.config.*'],
   },
   eslint.configs.recommended,
@@ -25,7 +23,6 @@ export default tseslint.config(
   ...compat.extends('next/core-web-vitals'),
   // ...compat.extends('eslint-plugin-tailwindcss'),
   {
-    // @typescript-eslintに関する設定
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -37,19 +34,19 @@ export default tseslint.config(
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-misused-promises': 'off',
+      '@typescript-eslint/no-confusing-void-expression': 'off',
     },
   },
   {
     plugins: {
-      'react-hooks': reactHooks, // Flat Config 形式ではオブジェクトとして定義する
+      'react-hooks': reactHooks,
     },
     rules: {
-      'react-hooks/rules-of-hooks': 'error', // フックのルール
-      'react-hooks/exhaustive-deps': 'warn', // 依存配列のチェック
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
   // {
-  //   // eslint-plugin-importに関する設定
   //   plugins: {
   //     import: importPlugin,
   //   },
@@ -76,9 +73,9 @@ export default tseslint.config(
       },
     },
     rules: {
-      'react/jsx-boolean-value': 'error', // JSXの中でのbooleanの使用
-      'react/jsx-curly-brace-presence': 'error', // JSXの中での余分な{}の使用
+      'react/jsx-boolean-value': 'error',
+      'react/jsx-curly-brace-presence': 'error',
     },
   },
   eslintConfigPrettier
-)
+);

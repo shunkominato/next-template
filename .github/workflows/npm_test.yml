@@ -1,4 +1,4 @@
-name: npm test
+name: pnpm test
 
 on:
   pull_request:
@@ -14,14 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
-          cache-dependency-path: '**/yarn.lock'
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install dependencies
-        run: yarn
+        run: pnpm install
+
       - name: Run build
-        run: npm run build
+        run: pnpm build
+
       - name: Run tests
-        run: npm test
+        run: pnpm test

@@ -10,7 +10,6 @@ export function Welcome() {
           Mantine
         </Text>
       </Title>
-      <img />
       <Text c="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
         This starter Next.js project includes a minimal setup for server side rendering, if you want
         to learn more on Mantine + Next.js integration follow{' '}
