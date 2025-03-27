@@ -7,7 +7,7 @@ import Content from '@/src/components/ui/Layout/Content';
 import { searchSeminars } from './actions';
 
 export const initialValue = {
-  chips: [] as string[],
+  categories: [] as string[],
 };
 
 export default function Seminars() {
@@ -22,16 +22,16 @@ export default function Seminars() {
       <form action={formAction}>
         <Chip.Group
           multiple
-          value={form.values.chips}
+          value={form.values.categories}
           onChange={(value) => {
-            form.setFieldValue('chips', value);
+            form.setFieldValue('categories', value);
           }}
         >
           <Chip value="pregnancyAndChildRearing">Pregnancy & Child Rearing</Chip>
           <Chip value="nutrition">Nutrition</Chip>
         </Chip.Group>
-        {form.values.chips.map((value, index) => (
-          <input key={index} type="hidden" name="chips[]" value={value} />
+        {form.values.categories.map((value, index) => (
+          <input key={index} type="hidden" name="categories[]" value={value} />
         ))}
         <Button type="submit" variant="filled">
           Button
