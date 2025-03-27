@@ -20,7 +20,7 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
-  ...compat.extends('next/core-web-vitals'),
+  ...compat.extends('eslint-config-next/core-web-vitals'),
   // ...compat.extends('eslint-plugin-tailwindcss'),
   {
     languageOptions: {

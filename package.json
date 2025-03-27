@@ -15,7 +15,7 @@
     "jest:watch": "jest --watch",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "test": "pnpm run prettier:check && pnpm run lint && pnpm run typecheck && pnpm run jest",
+    "test": "prettier --check \"**/*.{ts,tsx}\" && pnpm run lint && pnpm run typecheck && pnpm run jest",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
   },
